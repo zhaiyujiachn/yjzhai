@@ -16,10 +16,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // 论文筛选功能
-    const filterButtons = document.querySelectorAll('.filter-btn');
+    // 研究成果筛选功能
+    const filterButtons = document.querySelectorAll('.publication-filters .filter');
     const publicationItems = document.querySelectorAll('.publication-item');
     
+    // 确保过滤功能正常工作
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
             // 移除所有按钮的active类
@@ -29,17 +30,36 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('active');
             
             const filter = this.getAttribute('data-filter');
+            console.log('选择的过滤器:', filter); // 调试信息
             
             // 显示或隐藏论文项
             publicationItems.forEach(item => {
-                if (filter === 'all' || item.classList.contains(filter)) {
-                    item.style.display = 'flex';
+                const category = item.getAttribute('data-category');
+                console.log('项目类别:', category, '是否匹配:', (filter === 'all' || category === filter)); // 详细调试信息
+                
+                if (filter === 'all' || category === filter) {
+                    item.style.display = '';
+                    // 添加淡入效果
+                    item.style.opacity = '0';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transition = 'opacity 0.3s ease-in-out';
+                    }, 50);
                 } else {
                     item.style.display = 'none';
                 }
             });
         });
     });
+    
+    // 初始化显示所有研究成果
+    const allFilterButton = document.querySelector('.filter[data-filter="all"]');
+    if (allFilterButton) {
+        // 确保DOM完全加载后再触发点击
+        setTimeout(() => {
+            allFilterButton.click();
+        }, 100);
+    }
     
     // 导航栏滚动效果
     const nav = document.querySelector('nav');
