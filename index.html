@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学术个人主页</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile">
+                <div class="profile-image">
+                    <img src="images/profile.jpg" alt="个人照片">
+                </div>
+                <div class="profile-content">
+                    <h1>教授姓名</h1>
+                    <p class="title">职称 | 所属院系</p>
+                    <p class="institution">大学名称</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> email@university.edu</p>
+                        <p><i class="fas fa-phone"></i> 办公电话</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 办公室地址</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">个人简介</a></li>
+                <li><a href="#research">研究方向</a></li>
+                <li><a href="#publications">发表论文</a></li>
+                <li><a href="#projects">科研项目</a></li>
+                <li><a href="#teaching">教学工作</a></li>
+                <li><a href="#students">指导学生</a></li>
+                <li><a href="#awards">获奖情况</a></li>
+                <li><a href="#contact">联系方式</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section id="about" class="section">
+                <h2>个人简介</h2>
+                <div class="content">
+                    <p>这里是您的个人简介，包括您的教育背景、工作经历、研究兴趣等。可以详细描述您的学术生涯、研究成就和专业领域。建议包含300-500字的介绍，突出您的专业特长和学术贡献。</p>
+                    <p>您可以在这里添加更多段落，详细介绍您的学术背景和专业发展历程。</p>
+                </div>
+            </section>
+
+            <section id="research" class="section">
+                <h2>研究方向</h2>
+                <div class="content">
+                    <div class="research-area">
+                        <h3>研究方向一</h3>
+                        <p>详细描述您的第一个研究方向，包括研究内容、研究意义、研究成果等。</p>
+                    </div>
+                    <div class="research-area">
+                        <h3>研究方向二</h3>
+                        <p>详细描述您的第二个研究方向，包括研究内容、研究意义、研究成果等。</p>
+                    </div>
+                    <div class="research-area">
+                        <h3>研究方向三</h3>
+                        <p>详细描述您的第三个研究方向，包括研究内容、研究意义、研究成果等。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="publications" class="section">
+                <h2>发表论文</h2>
+                <div class="content">
+                    <div class="publication-filter">
+                        <button class="filter-btn active" data-filter="all">全部</button>
+                        <button class="filter-btn" data-filter="journal">期刊论文</button>
+                        <button class="filter-btn" data-filter="conference">会议论文</button>
+                        <button class="filter-btn" data-filter="book">专著/章节</button>
+                    </div>
+                    
+                    <div class="publication-list">
+                        <div class="publication-item journal" data-year="2023">
+                            <div class="pub-year">2023</div>
+                            <div class="pub-content">
+                                <p class="authors">作者1, 作者2, <strong>您的名字</strong>, 作者3</p>
+                                <p class="title">论文标题</p>
+                                <p class="journal">期刊名称, 卷(期), 页码</p>
+                                <div class="pub-links">
+                                    <a href="#" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>
+                                    <a href="#" class="pub-link"><i class="fas fa-link"></i> DOI</a>
+                                    <a href="#" class="pub-link"><i class="fas fa-code"></i> 代码</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-item conference" data-year="2022">
+                            <div class="pub-year">2022</div>
+                            <div class="pub-content">
+                                <p class="authors">作者1, <strong>您的名字</strong>, 作者2</p>
+                                <p class="title">会议论文标题</p>
+                                <p class="journal">会议名称, 地点, 页码</p>
+                                <div class="pub-links">
+                                    <a href="#" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>
+                                    <a href="#" class="pub-link"><i class="fas fa-link"></i> DOI</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-item book" data-year="2021">
+                            <div class="pub-year">2021</div>
+                            <div class="pub-content">
+                                <p class="authors"><strong>您的名字</strong>, 作者1, 作者2</p>
+                                <p class="title">专著或章节标题</p>
+                                <p class="journal">出版社, ISBN</p>
+                                <div class="pub-links">
+                                    <a href="#" class="pub-link"><i class="fas fa-link"></i> 链接</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="section">
+                <h2>科研项目</h2>
+                <div class="content">
+                    <div class="project-item">
+                        <h3>项目名称一</h3>
+                        <p class="project-meta">项目来源: 国家自然科学基金 | 时间: 2020-2023 | 角色: 项目负责人</p>
+                        <p>项目简介，包括项目的研究内容、研究目标、研究方法和预期成果等。</p>
+                    </div>
+                    
+                    <div class="project-item">
+                        <h3>项目名称二</h3>
+                        <p class="project-meta">项目来源: 省级科研项目 | 时间: 2019-2021 | 角色: 主要参与者</p>
+                        <p>项目简介，包括项目的研究内容、研究目标、研究方法和预期成果等。</p>
+                    </div>
+                    
+                    <div class="project-item">
+                        <h3>项目名称三</h3>
+                        <p class="project-meta">项目来源: 企业合作项目 | 时间: 2018-2020 | 角色: 项目负责人</p>
+                        <p>项目简介，包括项目的研究内容、研究目标、研究方法和预期成果等。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="teaching" class="section">
+                <h2>教学工作</h2>
+                <div class="content">
+                    <div class="course-category">
+                        <h3>本科课程</h3>
+                        <div class="course-item">
+                            <h4>课程名称一</h4>
+                            <p>课程简介，包括课程内容、教学目标、教学方法等。</p>
+                            <p><a href="#" class="course-link">课程资料 <i class="fas fa-external-link-alt"></i></a></p>
+                        </div>
+                        
+                        <div class="course-item">
+                            <h4>课程名称二</h4>
+                            <p>课程简介，包括课程内容、教学目标、教学方法等。</p>
+                            <p><a href="#" class="course-link">课程资料 <i class="fas fa-external-link-alt"></i></a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="course-category">
+                        <h3>研究生课程</h3>
+                        <div class="course-item">
+                            <h4>课程名称三</h4>
+                            <p>课程简介，包括课程内容、教学目标、教学方法等。</p>
+                            <p><a href="#" class="course-link">课程资料 <i class="fas fa-external-link-alt"></i></a></p>
+                        </div>
+                        
+                        <div class="course-item">
+                            <h4>课程名称四</h4>
+                            <p>课程简介，包括课程内容、教学目标、教学方法等。</p>
+                            <p><a href="#" class="course-link">课程资料 <i class="fas fa-external-link-alt"></i></a></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="students" class="section">
+                <h2>指导学生</h2>
+                <div class="content">
+                    <div class="student-category">
+                        <h3>博士研究生</h3>
+                        <ul class="student-list">
+                            <li>
+                                <span class="student-name">学生姓名</span>
+                                <span class="student-year">2020-至今</span>
+                                <span class="student-topic">研究方向：研究主题</span>
+                            </li>
+                            <li>
+                                <span class="student-name">学生姓名</span>
+                                <span class="student-year">2019-2023</span>
+                                <span class="student-topic">研究方向：研究主题</span>
+                                <span class="student-current">现就职于：单位名称</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="student-category">
+                        <h3>硕士研究生</h3>
+                        <ul class="student-list">
+                            <li>
+                                <span class="student-name">学生姓名</span>
+                                <span class="student-year">2021-至今</span>
+                                <span class="student-topic">研究方向：研究主题</span>
+                            </li>
+                            <li>
+                                <span class="student-name">学生姓名</span>
+                                <span class="student-year">2020-2022</span>
+                                <span class="student-topic">研究方向：研究主题</span>
+                                <span class="student-current">现就职于：单位名称</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="awards" class="section">
+                <h2>获奖情况</h2>
+                <div class="content">
+                    <div class="award-item">
+                        <div class="award-year">2023</div>
+                        <div class="award-content">
+                            <h3>奖项名称</h3>
+                            <p>颁发机构</p>
+                        </div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-year">2021</div>
+                        <div class="award-content">
+                            <h3>奖项名称</h3>
+                            <p>颁发机构</p>
+                        </div>
+                    </div>
+                    
+                    <div class="award-item">
+                        <div class="award-year">2019</div>
+                        <div class="award-content">
+                            <h3>奖项名称</h3>
+                            <p>颁发机构</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="section">
+                <h2>联系方式</h2>
+                <div class="content">
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-text">
+                                <h3>电子邮件</h3>
+                                <p>email@university.edu</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div class="contact-text">
+                                <h3>办公电话</h3>
+                                <p>+86 123 4567 8910</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-text">
+                                <h3>办公地址</h3>
+                                <p>大学名称</p>
+                                <p>院系名称</p>
+                                <p>详细地址，办公室号码</p>
+                                <p>城市，邮编</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 教授姓名. 保留所有权利。</p>
+            <p>最后更新: <span id="last-updated"></span></p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.getElementById('last-updated').textContent = new Date().toISOString().split('T')[0];
+    </script>
+</body>
+</html>
