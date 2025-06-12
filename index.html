@@ -1040,6 +1040,13 @@
                             <i class="fas fa-map-marker-alt"></i>
                             <span>办公室：天津师范大学管理学院，天津市西青区宾水西道393号</span>
                         </div>
+                        </div>
+                        <div class="contact-item">
+                            <span id="busuanzi_container_site_pv">
+                                本站访问量：<span id="busuanzi_value_site_pv"></span> 次
+                            </span>
+                            <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -1054,21 +1061,6 @@
     </footer>
 
     <script src="./js/script.js"></script>
-    <script>
-        document.getElementById('last-updated').textContent = new Date().toISOString().split('T')[0];
 
-        // Visitor counter
-        let visitorCount = localStorage.getItem('visitorCount');
-        if (visitorCount) {
-            visitorCount = parseInt(visitorCount) + 1;
-        } else {
-            visitorCount = 1;
-        }
-        localStorage.setItem('visitorCount', visitorCount);
-        
-        const visitorCountElement = document.createElement('p');
-        visitorCountElement.textContent = `访问人数: ${visitorCount}`;
-        document.querySelector('footer .container').appendChild(visitorCountElement);
-    </script>
 </body>
 </html>
