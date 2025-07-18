@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教学工作 - 翟羽佳</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile">
+                <div class="profile-image">
+                    <img src="images/output.png" alt="翟羽佳照片">
+                </div>
+                <div class="profile-content">
+                    <h1>翟羽佳</h1>
+                    <p class="title">副教授 | 副院长</p>
+                    <p class="institution">天津师范大学管理学院</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> yjzhai@tjnu.edu.cn</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 天津市西青区宾水西道393号</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="research.html">研究成果</a></li>
+                <li><a href="projects.html">项目经历</a></li>
+                <li><a href="awards.html">获奖情况</a></li>
+                <li><a href="teaching.html" class="active">教学工作</a></li>
+                <li><a href="students.html">学生指导</a></li>
+                <li><a href="service.html">学术服务</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section id="teaching" class="section">
+                <h2>教学工作</h2>
+                <div class="content">
+                    <div class="course-category">
+                        <h3>本科课程</h3>
+                        <div class="course-item">
+                            <h4>信息管理学 <span class="course-tag">国家一流本科课程</span></h4>
+                            <p>本课程系统介绍信息管理的基本理论、方法与技术，旨在培养学生在数字化时代进行有效信息组织、检索、分析与利用的核心能力。</p>
+                            <p><a href="#" class="course-link">课程资料 <i class="fas fa-external-link-alt"></i></a></p>
+                        </div>
+                        
+                        <div class="course-item">
+                            <h4>数据素养通论 <span class="course-tag">天津市一流本科课程</span></h4>
+                            <p>作为一门通识核心课程，本课程旨在提升学生的数据意识、数据思维和数据分析能力，使其具备在各领域中基于数据进行科学决策的基本素养。</p>
+                            <p><a href="#" class="course-link">课程资料 <i class="fas fa-external-link-alt"></i></a></p>
+                        </div>
+
+                        <div class="course-item">
+                            <h4>大数据平台架构与实践</h4>
+                            <p>本课程聚焦于主流大数据技术的原理与应用，内容涵盖Hadoop、Spark等核心组件，通过实践操作，培养学生搭建、管理和应用大数据平台的能力。</p>
+                            <p><a href="#" class="course-link">课程资料 <i class="fas fa-external-link-alt"></i></a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="course-category">
+                        <h3>研究生课程</h3>
+                        <div class="course-item">
+                            <h4>数据分析工具</h4>
+                            <p>本课程深入讲解和实践多种前沿数据分析工具（如Python、R、SQL等），训练学生掌握数据处理、统计分析、可视化和建模的全流程技能。</p>
+                            <p><a href="#" class="course-link">课程资料 <i class="fas fa-external-link-alt"></i></a></p>
+                        </div>
+                        
+                        <div class="course-item">
+                            <h4>大数据分析</h4>
+                            <p>本课程面向复杂实际问题，讲授高级大数据分析方法与机器学习算法，旨在培养学生利用大数据技术解决科研与商业挑战的综合能力。</p>
+                            <p><a href="#" class="course-link">课程资料 <i class="fas fa-external-link-alt"></i></a></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 翟羽佳. 保留所有权利。</p>
+            <p>最后更新: <span id="last-updated"></span></p>
+            <span id="busuanzi_container_site_pv">
+                本站访问量：<span id="busuanzi_value_site_pv"></span> 次
+            </span>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+    <script>
+        // 更新时间
+        document.getElementById('last-updated').textContent = new Date().toISOString().split('T')[0];
+    </script>
+    <!-- busuanzi 访问统计，建议放在所有 js 代码后 -->
+    <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</body>
+</html>
