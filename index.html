@@ -108,14 +108,6 @@
                     </div>
                 </div>
             </section>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            
-
-=======
->>>>>>> parent of 7132b9b (updated visted)
-=======
->>>>>>> parent of 7132b9b (updated visted)
         </div>
 
         
@@ -126,25 +118,15 @@
             <p>&copy; 2025 翟羽佳. 保留所有权利。</p>
             <p>最后更新: <span id="last-updated"></span></p>
             <span id="busuanzi_container_site_pv">
-                <a href="stats.html" style="color: inherit; text-decoration: none;">
-                    本站访问量：<span id="busuanzi_value_site_pv"></span> 次
-                </a>
+                本站访问量：<span id="busuanzi_value_site_pv"></span> 次
             </span>
         </div>
     </footer>
 
-    <!-- 引入自定义脚本 -->
-    <script src="js/logger.js"></script>
-    <script src="js/data-utils.js"></script>
-    <script src="js/chart-utils.js"></script>
-    <script src="js/github-pages-adapter.js"></script>
     <script src="./js/script.js"></script>
-    <script src="js/performance.js"></script>
     <script>
-        // 设置最后更新时间
-        document.addEventListener('DOMContentLoaded', function() {
-            DataUtils.setLastUpdated();
-        });
+        // 更新时间
+        document.getElementById('last-updated').textContent = new Date().toISOString().split('T')[0];
     </script>
     <!-- busuanzi 访问统计，建议放在所有 js 代码后 -->
     <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
