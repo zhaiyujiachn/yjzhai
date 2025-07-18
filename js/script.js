@@ -225,6 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 窗口大小改变时检查
     window.addEventListener('resize', checkWindowSize);
+<<<<<<< HEAD
     
     // 访问量统计功能
     initVisitStats();
@@ -496,3 +497,6 @@ function initVisitStats() {
         init();
     }
 }
+=======
+});
+>>>>>>> parent of 7132b9b (updated visted)
