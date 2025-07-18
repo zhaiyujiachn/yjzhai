@@ -6,6 +6,7 @@
     <title>翟羽佳 - 个人学术主页</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -105,6 +106,32 @@
                         </div>
                         </div>
 
+                    </div>
+                </div>
+            </section>
+            
+            <section id="visit-stats" class="section">
+                <h2>网站访问统计</h2>
+                <div class="content">
+                    <div class="stats-container">
+                        <div class="stats-summary">
+                            <div class="stat-item">
+                                <span class="stat-label">今日访问量</span>
+                                <span class="stat-value" id="today-visits">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">昨日访问量</span>
+                                <span class="stat-value" id="yesterday-visits">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">总访问量</span>
+                                <span class="stat-value" id="total-visits">0</span>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <h3>近30天访问量趋势</h3>
+                            <canvas id="visitChart" width="400" height="200"></canvas>
+                        </div>
                     </div>
                 </div>
             </section>
