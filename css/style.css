@@ -572,6 +572,7 @@ main {
 
 .award-list {
     display: grid;
+<<<<<<< HEAD
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
     margin-bottom: 30px;
@@ -661,6 +662,8 @@ main {
 /* 联系方式样式 */
 .contact-details {
     display: grid;
+=======
+>>>>>>> parent of 7132b9b (updated visted)
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
@@ -695,6 +698,7 @@ footer p {
     margin-bottom: 10px;
 }
 
+<<<<<<< HEAD
 /* 页脚访问量链接样式 */
 footer #busuanzi_container_site_pv a {
     color: inherit;
@@ -712,6 +716,8 @@ footer #busuanzi_container_site_pv a:hover {
     transform: translateY(-1px);
 }
 
+=======
+>>>>>>> parent of 7132b9b (updated visted)
 /* 响应式设计 */
 @media (max-width: 768px) {
     .profile {
