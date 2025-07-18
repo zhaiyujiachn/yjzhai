@@ -230,55 +230,22 @@ document.addEventListener('DOMContentLoaded', function() {
     initVisitStats();
 });
 
-// 访问量统计功能 - 基于不蒜子数据
+// 访问量统计功能
 function initVisitStats() {
-    // 获取今天的日期字符串
-    function getTodayString() {
-        return new Date().toISOString().split('T')[0];
-    }
-    
-    // 获取昨天的日期字符串
-    function getYesterdayString() {
-        const yesterday = new Date();
-        yesterday.setDate(yesterday.getDate() - 1);
-        return yesterday.toISOString().split('T')[0];
-    }
-    
-    // 从localStorage获取不蒜子历史数据
-    function getBusuanziHistory() {
-        const data = localStorage.getItem('busuanziHistory');
-        return data ? JSON.parse(data) : {};
-    }
-    
-    // 保存不蒜子历史数据
-    function saveBusuanziHistory(data) {
-        localStorage.setItem('busuanziHistory', JSON.stringify(data));
-    }
-    
-    // 获取不蒜子当前访问量
-    function getCurrentBusuanziCount() {
-        const element = document.getElementById('busuanzi_value_site_pv');
-        if (element && element.textContent) {
-            const count = parseInt(element.textContent.replace(/,/g, ''));
-            return isNaN(count) ? 0 : count;
-        }
-        return 0;
-    }
-    
     // 记录不蒜子数据
     function recordBusuanziData() {
-        const today = getTodayString();
-        const currentCount = getCurrentBusuanziCount();
+        const today = DateUtils.getTodayString();
+        const currentCount = DataUtils.getCurrentBusuanziCount();
         
         if (currentCount > 0) {
-            const history = getBusuanziHistory();
+            const history = DataUtils.getBusuanziHistory();
             const lastRecordDate = localStorage.getItem('lastBusuanziRecord');
             
             // 如果是新的一天或者第一次记录
             if (lastRecordDate !== today) {
                 // 计算今日新增访问量
                 let todayVisits = 0;
-                const yesterday = getYesterdayString();
+                const yesterday = DateUtils.getYesterdayString();
                 
                 if (history[yesterday]) {
                     // 有昨天的数据，计算差值
@@ -292,19 +259,29 @@ function initVisitStats() {
                 history[today] = {
                     total: currentCount,
                     daily: todayVisits,
+                    initialTotal: currentCount - todayVisits, // 记录今日开始时的总量
                     timestamp: Date.now()
                 };
                 
-                saveBusuanziHistory(history);
+                DataUtils.saveBusuanziHistory(history);
                 localStorage.setItem('lastBusuanziRecord', today);
                 
                 console.log(`记录访问数据 - 日期: ${today}, 总量: ${currentCount}, 今日: ${todayVisits}`);
             } else {
-                // 同一天，更新总量但保持日增量不变
+                // 同一天，实时更新今日访问量
                 if (history[today]) {
-                    history[today].total = currentCount;
-                    history[today].timestamp = Date.now();
-                    saveBusuanziHistory(history);
+                    const initialTotal = history[today].initialTotal || (history[today].total - history[today].daily);
+                    const newDailyVisits = Math.max(0, currentCount - initialTotal);
+                    
+                    history[today] = {
+                        total: currentCount,
+                        daily: newDailyVisits,
+                        initialTotal: initialTotal,
+                        timestamp: Date.now()
+                    };
+                    
+                    DataUtils.saveBusuanziHistory(history);
+                    console.log(`更新访问数据 - 日期: ${today}, 总量: ${currentCount}, 今日: ${newDailyVisits}`);
                 }
             }
         }
@@ -312,7 +289,7 @@ function initVisitStats() {
     
     // 获取近30天的趋势数据
     function getLast30DaysData() {
-        const history = getBusuanziHistory();
+        const history = DataUtils.getBusuanziHistory();
         const dates = [];
         const visits = [];
         const totalCounts = [];
@@ -339,113 +316,64 @@ function initVisitStats() {
     
     // 更新统计显示
     function updateStatsDisplay() {
-        const today = getTodayString();
-        const yesterday = getYesterdayString();
-        const history = getBusuanziHistory();
-        const currentTotal = getCurrentBusuanziCount();
+        const today = DateUtils.getTodayString();
+        const yesterday = DateUtils.getYesterdayString();
+        const history = DataUtils.getBusuanziHistory();
+        const currentTotal = DataUtils.getCurrentBusuanziCount();
         
         // 显示今日访问量
         const todayData = history[today];
-        document.getElementById('today-visits').textContent = todayData ? todayData.daily : 0;
+        const todayVisits = todayData ? todayData.daily : 0;
         
         // 显示昨日访问量
         const yesterdayData = history[yesterday];
-        document.getElementById('yesterday-visits').textContent = yesterdayData ? yesterdayData.daily : 0;
+        const yesterdayVisits = yesterdayData ? yesterdayData.daily : 0;
         
-        // 显示总访问量（优先使用不蒜子实时数据）
-        document.getElementById('total-visits').textContent = currentTotal || (todayData ? todayData.total : 0);
+        // 更新页面显示
+        const todayElement = document.getElementById('today-visits');
+        const yesterdayElement = document.getElementById('yesterday-visits');
+        const totalElement = document.getElementById('total-visits');
+        
+        if (todayElement) todayElement.textContent = todayVisits.toLocaleString();
+        if (yesterdayElement) yesterdayElement.textContent = yesterdayVisits.toLocaleString();
+        if (totalElement) totalElement.textContent = currentTotal.toLocaleString();
     }
     
-    // 创建趋势图
+    // 创建访问趋势图表
     function createVisitChart() {
         const chartElement = document.getElementById('visitChart');
         if (!chartElement) return;
         
-        const { dates, visits } = getLast30DaysData();
-        
-        // 如果已经存在图表，先销毁
-        if (window.visitChartInstance) {
-            window.visitChartInstance.destroy();
-        }
-        
-        const ctx = chartElement.getContext('2d');
-        window.visitChartInstance = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: dates,
-                datasets: [{
-                    label: '每日新增访问量',
-                    data: visits,
-                    borderColor: '#667eea',
-                    backgroundColor: 'rgba(102, 126, 234, 0.1)',
-                    borderWidth: 3,
-                    fill: true,
-                    tension: 0.4,
-                    pointBackgroundColor: '#667eea',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    pointRadius: 5,
-                    pointHoverRadius: 8
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        titleColor: '#fff',
-                        bodyColor: '#fff',
-                        borderColor: '#667eea',
-                        borderWidth: 1,
-                        cornerRadius: 8,
-                        displayColors: false,
-                        callbacks: {
-                            title: function(context) {
-                                return context[0].label;
-                            },
-                            label: function(context) {
-                                return `新增访问: ${context.parsed.y} 次`;
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            stepSize: 1,
-                            color: '#666'
-                        },
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.1)'
-                        }
-                    },
-                    x: {
-                        ticks: {
-                            color: '#666',
-                            maxTicksLimit: 10
-                        },
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.1)'
-                        }
-                    }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index'
-                }
+        try {
+            const data = getLast30DaysData();
+            if (!data || data.dates.length === 0) {
+                ChartUtils.showNoDataMessage('visitChart');
+                return;
             }
-        });
+            
+            ChartUtils.createVisitChart(
+                'visitChart',
+                data.dates,
+                data.visits,
+                null,
+                {
+                    instanceName: 'visitChartInstance',
+                    showTitle: false,
+                    showLegend: false,
+                    borderWidth: 3,
+                    pointRadius: 5
+                }
+            );
+        } catch (error) {
+            logger.error('创建访问图表失败', error);
+            ChartUtils.showNoDataMessage('visitChart', '图表加载失败，请刷新页面重试');
+        }
     }
     
     // 等待不蒜子加载并记录数据
     function waitForBusuanziAndRecord() {
         const checkBusuanzi = () => {
-            const currentCount = getCurrentBusuanziCount();
+            const currentCount = DataUtils.getCurrentBusuanziCount();
             if (currentCount > 0) {
                 recordBusuanziData();
                 updateStatsDisplay();
@@ -488,19 +416,37 @@ function initVisitStats() {
                 observer.disconnect();
             }, 5000);
         }
+        
+        // 设置实时更新机制，每30秒检查一次不蒜子数据变化
+        setInterval(() => {
+            const currentCount = DataUtils.getCurrentBusuanziCount();
+            if (currentCount > 0) {
+                const history = DataUtils.getBusuanziHistory();
+                const today = DataUtils.getTodayString();
+                const todayData = history[today];
+                
+                // 如果总访问量有变化，更新数据
+                if (todayData && currentCount !== todayData.total) {
+                    DataUtils.recordBusuanziData();
+                    updateStatsDisplay();
+                    logger.log(`实时更新 - 总量从 ${todayData.total} 更新到 ${currentCount}`);
+                }
+            }
+        }, 30000); // 每30秒检查一次
     }
     
     // 每天自动更新功能
     function setupDailyUpdate() {
         function checkForDailyUpdate() {
-            const today = getTodayString();
+            const today = DateUtils.getTodayString();
             const lastUpdateDate = localStorage.getItem('lastStatsUpdate');
             
             if (lastUpdateDate !== today) {
-                recordBusuanziData();
-                updateStatsDisplay();
-                createVisitChart();
-                localStorage.setItem('lastStatsUpdate', today);
+                // 新的一天，触发数据更新
+                DataUtils.updateServerData().then(() => {
+                    localStorage.setItem('lastStatsUpdate', today);
+                    console.log('每日数据更新完成');
+                });
             }
         }
         
@@ -513,7 +459,7 @@ function initVisitStats() {
     
     // 清理过期数据（保留60天）
     function cleanupOldData() {
-        const history = getBusuanziHistory();
+        const history = DataUtils.getBusuanziHistory();
         const cutoffDate = new Date();
         cutoffDate.setDate(cutoffDate.getDate() - 60);
         const cutoffString = cutoffDate.toISOString().split('T')[0];
@@ -527,7 +473,7 @@ function initVisitStats() {
         });
         
         if (hasChanges) {
-            saveBusuanziHistory(history);
+            DataUtils.saveBusuanziHistory(history);
         }
     }
     
