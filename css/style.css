@@ -1917,6 +1917,24 @@ footer p {
     margin-bottom: 10px;
 }
 
+/* 访问统计样式 */
+.stats-info {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-top: 10px;
+}
+
+.stats-info span {
+    color: #fff;
+    font-weight: bold;
+    margin: 0 2px;
+}
+
+.stats-loading {
+    color: #999;
+    font-style: italic;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .profile {

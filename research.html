@@ -529,18 +529,17 @@
         <div class="container">
              <p>&copy; 2025 翟羽佳. 保留所有权利。</p>
             <p>最后更新: <span id="last-updated"></span></p>
-                本站总访问量<span id="busuanzi_value_site_pv"></span>次
-                本站访客数<span id="busuanzi_value_site_uv"></span>人次
-                本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+            <p class="stats-info">
+                本站总访问量 <span id="busuanzi_value_site_pv">--</span> 次 | 
+                本站访客数 <span id="busuanzi_value_site_uv">--</span> 人次 | 
+                本文总阅读量 <span id="busuanzi_value_page_pv">--</span> 次
+            </p>
         </div>
     </footer>
 
     <script src="./js/script.js"></script>
-    <script>
-        // 更新时间
-        document.getElementById('last-updated').textContent = new Date().toISOString().split('T')[0];
-    </script>
+    <script src="./js/stats.js"></script>
     <!-- busuanzi 访问统计，建议放在所有 js 代码后 -->
-    <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
 </html>
