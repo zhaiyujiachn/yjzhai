@@ -294,64 +294,43 @@ main {
 }
 
 .publication-item {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 6px;
-    margin-bottom: 12px;
-    padding: 0;
-    border: none;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    position: relative;
 }
 
 .publication-year {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #555;
-    margin: 0;
-    padding: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #0066cc;
+    margin-bottom: 8px;
+    display: inline-block;
+    background-color: #f0f5ff;
+    padding: 3px 10px;
+    border-radius: 4px;
 }
 
 .publication-authors {
-    margin: 0;
-    color: #666;
-    line-height: 1.4;
+    margin-bottom: 8px;
+    color: #555;
+    line-height: 1.5;
 }
 
 .publication-title {
-    font-weight: 600;
-    margin: 0;
+    font-weight: bold;
+    margin-bottom: 8px;
     color: #333;
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.4;
 }
 
 .publication-journal {
     font-style: italic;
-    color: #777;
-    margin: 0;
+    color: #666;
+    margin-bottom: 10px;
     line-height: 1.4;
 }
-
-/* 简洁分隔符：在单行中使用中点分隔 */
-.publication-year::after,
-.publication-title::after,
-.publication-authors::after {
-    content: '·';
-    color: #999;
-    margin: 0 6px;
-}
-
-/* 如果字段为空则不显示分隔符 */
-.publication-title:empty::after,
-.publication-authors:empty::after {
-    content: '';
-}
-
-/* 顺序调整：年-题目-作者-期刊 */
-.publication-year { order: 1; }
-.publication-title { order: 2; }
-.publication-authors { order: 3; }
-.publication-journal { order: 4; }
 
 .publication-links {
     display: flex;
