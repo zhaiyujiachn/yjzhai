@@ -9,7 +9,7 @@ body {
     font-family: 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f8f9fa;
+    background-color: #F9F7F2;
 }
 
 .container {
@@ -20,13 +20,13 @@ body {
 }
 
 a {
-    color: #0066cc;
+    color: #E86A58;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 a:hover {
-    color: #004080;
+    color: #c75346;
     text-decoration: underline;
 }
 
@@ -100,7 +100,7 @@ header {
 
 /* 导航样式 */
 nav {
-    background-color: #0066cc;
+    background-color: #0F2C4C;
     padding: 15px 0;
     position: sticky;
     top: 0;
@@ -157,8 +157,8 @@ main {
 
 .section h2 {
     padding: 20px 30px;
-    background-color: #f0f5ff;
-    color: #0066cc;
+    background-color: #BCCAD6;
+    color: #0F2C4C;
     font-size: 1.8rem;
     border-bottom: 1px solid #e0e0e0;
 }
@@ -169,11 +169,11 @@ main {
 
 /* 个人简介样式 */
 #about .content h3 {
-    color: #0066cc;
+    color: #0F2C4C;
     font-size: 1.4rem;
     margin: 25px 0 15px 0;
     padding-bottom: 10px;
-    border-bottom: 2px solid #e0ecff;
+    border-bottom: 2px solid #BCCAD6;
     position: relative;
 }
 
@@ -188,7 +188,7 @@ main {
     height: 2px;
     bottom: -2px;
     left: 0;
-    background-color: #0066cc;
+    background-color: #0F2C4C;
 }
 
 #about .content p {
@@ -236,7 +236,7 @@ main {
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
     overflow: hidden;
-    border-left: 4px solid #0066cc;
+    border-left: 4px solid #BCCAD6;
 }
 
 .research-area:hover {
@@ -245,7 +245,7 @@ main {
 }
 
 .research-area h3 {
-    color: #0066cc;
+    color: #0F2C4C;
     font-size: 1.3rem;
     margin-bottom: 15px;
     line-height: 1.4;
@@ -267,11 +267,10 @@ main {
     gap: 10px;
     justify-content: center;
 }
-
 .filter {
-    background-color: #f0f5ff;
-    border: 1px solid #d0e0ff;
-    color: #0066cc;
+    background-color: #EEF2F6;
+    border: 1px solid #BCCAD6;
+    color: #0F2C4C;
     padding: 10px 20px;
     border-radius: 30px;
     cursor: pointer;
@@ -280,17 +279,15 @@ main {
     font-weight: 500;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
-
 .filter:hover {
-    background-color: #e0ecff;
+    background-color: #E3E9F0;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-
 .filter.active {
-    background-color: #0066cc;
+    background-color: #E86A58;
     color: #fff;
-    box-shadow: 0 4px 8px rgba(0,102,204,0.3);
+    box-shadow: 0 4px 8px rgba(232,106,88,0.3);
 }
 
 .publication-item {
@@ -303,10 +300,10 @@ main {
 .publication-year {
     font-size: 1.1rem;
     font-weight: bold;
-    color: #0066cc;
+    color: #0F2C4C;
     margin-bottom: 8px;
     display: inline-block;
-    background-color: #f0f5ff;
+    background-color: #E3E9F0;
     padding: 3px 10px;
     border-radius: 4px;
 }
@@ -340,16 +337,15 @@ main {
 
 .publication-link {
     font-size: 0.9rem;
-    color: #0066cc;
+    color: #E86A58;
     display: inline-block;
     padding: 3px 10px;
-    border: 1px solid #d0e0ff;
+    border: 1px solid #BCCAD6;
     border-radius: 4px;
     transition: all 0.3s;
 }
-
 .publication-link:hover {
-    background-color: #0066cc;
+    background-color: #E86A58;
     color: #fff;
     text-decoration: none;
 }
@@ -364,7 +360,7 @@ main {
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
-    border-left: 4px solid #0066cc;
+    border-left: 4px solid #BCCAD6;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -383,8 +379,8 @@ main {
 
 .project-role {
     display: inline-block;
-    background-color: #e6f0ff;
-    color: #0066cc;
+    background-color: #E3E9F0;
+    color: #0F2C4C;
     padding: 4px 10px;
     border-radius: 4px;
     font-size: 0.9rem;
@@ -420,7 +416,7 @@ main {
 .course-item {
     margin-bottom: 20px;
     padding-left: 15px;
-    border-left: 3px solid #0066cc;
+    border-left: 3px solid #BCCAD6;
 }
 
 .course-item h4 {
@@ -912,7 +908,7 @@ main {
     font-size: 1.2rem;
     margin-bottom: 15px;
     padding-left: 10px;
-    border-left: 3px solid #0066cc;
+    border-left: 3px solid #BCCAD6;
 }
 
 /* 获奖情况列表样式 */
@@ -951,7 +947,7 @@ main {
     background-color: #f8f9fa;
     padding: 12px 15px;
     border-radius: 8px;
-    border-left: 3px solid #0066cc;
+    border-left: 3px solid #BCCAD6;
     color: #444;
     font-size: 1rem;
     line-height: 1.6;
@@ -1632,7 +1628,7 @@ main {
 }
 
 .category-count {
-    background: #3498db;
+    background: #BCCAD6;
     color: white;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
@@ -1701,7 +1697,7 @@ main {
 
 .service-icon {
     font-size: 1.5rem;
-    color: #3498db;
+    color: #0F2C4C;
     margin-top: 0.2rem;
     flex-shrink: 0;
 }
@@ -1718,6 +1714,15 @@ main {
     margin: 0 0 1rem 0;
     line-height: 1.5;
     font-size: 0.95rem;
+}
+/* 页脚样式 */
+footer {
+    background-color: #0F2C4C;
+    color: #fff;
+    padding: 20px 0;
+}
+footer .container p {
+    color: #fff;
 }
 
 .service-tag {
@@ -2069,14 +2074,14 @@ footer p {
 }
 .lang-btn {
     padding: 6px 12px;
-    border: 1px solid #0066cc;
+    border: 1px solid #0F2C4C;
     background: #fff;
-    color: #0066cc;
+    color: #0F2C4C;
     border-radius: 14px;
     cursor: pointer;
 }
 .lang-btn.active {
-    background: #0066cc;
+    background: #E86A58;
     color: #fff;
 }
 .intro-en {
