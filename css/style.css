@@ -428,6 +428,26 @@ main {
     font-size: 1.2rem;
     margin-bottom: 10px;
 }
+.course-tag {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: #ecf0f1;
+    color: #34495e;
+}
+.course-tag.course-tag--national {
+    background: linear-gradient(135deg, #ff6b6b 0%, #f06595 100%);
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(240, 101, 149, 0.25);
+}
+.course-tag.course-tag--tianjin {
+    background: linear-gradient(135deg, #4dabf7 0%, #1971c2 100%);
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(25, 113, 194, 0.25);
+}
 
 .course-link {
     display: inline-block;
@@ -919,6 +939,64 @@ main {
     background-color: #e6f0ff;
     box-shadow: 0 4px 8px rgba(0,0,0,0.08);
 }
+
+/* 研究成果列表（带序号） */
+.research-list {
+    list-style: decimal;
+    padding-left: 1.25rem;
+}
+
+.research-list li {
+    margin-bottom: 10px;
+    background-color: #f8f9fa;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border-left: 3px solid #0066cc;
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.6;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+.research-list li:hover {
+    transform: translateX(5px);
+    background-color: #e6f0ff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+
+.cat-badge {
+    display: inline-block;
+    margin-right: 8px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.cat-badge.journal { background-color: #0066cc; }
+.cat-badge.conference { background-color: #1abc9c; }
+.cat-badge.book { background-color: #f39c12; }
+.cat-badge.patent { background-color: #9b59b6; }
+.cat-badge.software { background-color: #27ae60; }
+
+/* 扩展类别标签配色 */
+.cat-badge.research { background-color: #0ca678; }
+.cat-badge.teaching { background-color: #ff922b; }
+.cat-badge.journal_international { background-color: #2b8a3e; }
+.cat-badge.journal_domestic { background-color: #8d6cff; }
+.cat-badge.research_award { background-color: #a61e4d; }
+.cat-badge.teaching_award { background-color: #f06595; }
+.cat-badge.organization { background-color: #2980b9; }
+.cat-badge.review { background-color: #6c5ce7; }
+.cat-badge.key_award { background-color: #f39c12; }
+.cat-badge.continuous_award { background-color: #20c997; }
+.cat-badge.academic { background-color: #4dabf7; }
+.cat-badge.competition { background-color: #ff6b6b; }
+.cat-badge.innovation { background-color: #38d9a9; }
+.cat-badge.thesis { background-color: #845ef7; }
 
 .student-name {
     font-weight: bold;
@@ -1981,5 +2059,62 @@ footer p {
     
     .contact-details {
         grid-template-columns: 1fr;
+    }
+}
+/* 首页简介语言切换 */
+.lang-toggle {
+    display: inline-flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+.lang-btn {
+    padding: 6px 12px;
+    border: 1px solid #0066cc;
+    background: #fff;
+    color: #0066cc;
+    border-radius: 14px;
+    cursor: pointer;
+}
+.lang-btn.active {
+    background: #0066cc;
+    color: #fff;
+}
+.intro-en {
+    display: none;
+}
+.research-areas {
+    display: grid;
+    gap: 24px;
+}
+.research-area {
+    display: block;
+    margin-bottom: 12px;
+    align-items: start;
+    background: #fff;
+    border: 1px solid #e8ecef;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+.research-figure {
+    width: 100%;
+    height: 160px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f5f7fa;
+    margin: 8px 0 12px;
+}
+.research-figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+@media (max-width: 768px) {
+    .research-area {
+        display: block;
+    }
+    .research-figure {
+        height: 180px;
     }
 }

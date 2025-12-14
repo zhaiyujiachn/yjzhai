@@ -16,49 +16,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // 研究成果筛选功能
+    const ol = document.querySelector('.research-list');
     const filterButtons = document.querySelectorAll('.publication-filters .filter');
-    const publicationItems = document.querySelectorAll('.publication-item');
-    
-    // 确保过滤功能正常工作
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // 移除所有按钮的active类
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // 为当前按钮添加active类
-            this.classList.add('active');
-            
-            const filter = this.getAttribute('data-filter');
-            console.log('选择的过滤器:', filter); // 调试信息
-            
-            // 显示或隐藏论文项
-            publicationItems.forEach(item => {
-                const category = item.getAttribute('data-category');
-                console.log('项目类别:', category, '是否匹配:', (filter === 'all' || category === filter)); // 详细调试信息
-                
-                if (filter === 'all' || category === filter) {
-                    item.style.display = '';
-                    // 添加淡入效果
-                    item.style.opacity = '0';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transition = 'opacity 0.3s ease-in-out';
-                    }, 50);
-                } else {
-                    item.style.display = 'none';
-                }
+    if (ol && filterButtons.length) {
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const filter = this.getAttribute('data-filter');
+                const group = this.getAttribute('data-filter-group');
+                const set = group ? new Set(group.split(',').map(s => s.trim())) : null;
+                ol.querySelectorAll('li').forEach(li => {
+                    let match = false;
+                    if (filter === 'all') {
+                        match = true;
+                    } else if (set) {
+                        match = set.has(li.dataset.category);
+                    } else {
+                        match = li.dataset.category === filter;
+                    }
+                    li.style.display = match ? '' : 'none';
+                });
             });
         });
-    });
-    
-    // 初始化显示所有研究成果
-    const allFilterButton = document.querySelector('.filter[data-filter="all"]');
-    if (allFilterButton) {
-        // 确保DOM完全加载后再触发点击
-        setTimeout(() => {
-            allFilterButton.click();
-        }, 100);
+        const allBtn = document.querySelector('.filter[data-filter="all"]');
+        if (allBtn) allBtn.click();
     }
     
     // 导航栏滚动效果
@@ -225,4 +207,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 窗口大小改变时检查
     window.addEventListener('resize', checkWindowSize);
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const zhBtn = document.querySelector('.lang-toggle .lang-btn[data-lang="zh"]');
+    const enBtn = document.querySelector('.lang-toggle .lang-btn[data-lang="en"]');
+    const zhIntro = document.querySelector('.intro-zh');
+    const enIntro = document.querySelector('.intro-en');
+    if (zhBtn && enBtn && zhIntro && enIntro) {
+        const setLang = (lang) => {
+            zhBtn.classList.toggle('active', lang === 'zh');
+            enBtn.classList.toggle('active', lang === 'en');
+            zhIntro.style.display = lang === 'zh' ? 'block' : 'none';
+            enIntro.style.display = lang === 'en' ? 'block' : 'none';
+        };
+        zhBtn.addEventListener('click', () => setLang('zh'));
+        enBtn.addEventListener('click', () => setLang('en'));
+        setLang('zh');
+    }
+    const lastUpdated = document.getElementById('last-updated');
+    if (lastUpdated) {
+        lastUpdated.textContent = new Date().toISOString().split('T')[0];
+    }
 });

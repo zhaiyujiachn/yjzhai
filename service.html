@@ -46,6 +46,39 @@
             <section id="academic-service" class="section">
                 <h2>学术服务</h2>
                 <div class="content">
+                    <style>
+                        .highlight-services,
+                        .service-categories,
+                        .category-section,
+                        .journals-grid,
+                        .show-more-section,
+                        .more-organizations { display: none !important; }
+                    </style>
+                    <div class="publication-filters">
+                        <button class="filter active" data-filter="all">全部</button>
+                        <button class="filter" data-filter="organization">学术组织</button>
+                        <button class="filter" data-filter="review">期刊审稿</button>
+                    </div>
+                    <ol class="research-list">
+                        <li data-category="organization"><span class="cat-badge organization">学术组织</span> ASIS&T SIG-OIM 当值主席（Chair）</li>
+                        <li data-category="organization"><span class="cat-badge organization">学术组织</span> Information Processing & Management Editorial Board 成员</li>
+                        <li data-category="organization"><span class="cat-badge organization">学术组织</span> 图书情报工作 青年编委</li>
+                        <li data-category="organization"><span class="cat-badge organization">学术组织</span> 情报工程 青年编委</li>
+                        <li data-category="organization"><span class="cat-badge organization">学术组织</span> 中国信息经济学会 数智治理与交叉信息科学专委会 秘书长</li>
+                        <li data-category="organization"><span class="cat-badge organization">学术组织</span> 中国教育技术协会 数字商科教育专委会 委员</li>
+                        <li data-category="organization"><span class="cat-badge organization">学术组织</span> 北京科学技术情报学会 元科学专委会 委员</li>
+                        <li data-category="organization"><span class="cat-badge organization">学术组织</span> 天津市科学学研究会 理事</li>
+                        <li data-category="organization"><span class="cat-badge organization">学术组织</span> 天津市中文信息学会 科普专委会 副主任</li>
+                        <li data-category="organization"><span class="cat-badge organization">学术组织</span> 图情档39青年学者沙龙（青年学者交流平台）</li>
+                        <li data-category="organization"><span class="cat-badge organization">学术组织</span> 天津公共部门信息服务评价与治理中心（智库成员）</li>
+                        <li data-category="organization"><span class="cat-badge organization">学术组织</span> 南开大学网络社会治理研究中心 研究员</li>
+                        <li data-category="organization"><span class="cat-badge organization">学术组织</span> 天津师范大学杰出青年创新团队</li>
+                        <li data-category="organization"><span class="cat-badge organization">学术组织</span> 天津市高等学校创新团队</li>
+                        <li data-category="organization"><span class="cat-badge organization">学术组织</span> 中国轻工业发展研究中心 轻工业智能技术应用研究院 成员</li>
+                        <li data-category="organization"><span class="cat-badge organization">学术组织</span> 天津市行政管理学会 成员</li>
+                        <li data-category="review"><span class="cat-badge review">期刊审稿</span> Scientific Reports、JASIST、IP&M、Journal of Informetrics、Technology in Society、Telematics and Informatics、Computers in Human Behavior、Scientometrics、JDIS</li>
+                        <li data-category="review"><span class="cat-badge review">期刊审稿</span> 情报学报、图书情报工作、图书情报知识、情报资料工作、情报科学、现代情报、信息资源管理学报</li>
+                    </ol>
 
 
                     <!-- 重点服务展示 -->
@@ -487,60 +520,7 @@
     </footer>
 
     <script src="./js/script.js"></script>
-    <script>
-        // 更新时间
-        document.getElementById('last-updated').textContent = new Date().toISOString().split('T')[0];
-
-        // 显示更多组织功能
-        function toggleMoreOrganizations() {
-            const moreOrganizations = document.getElementById('more-organizations');
-            const button = document.querySelector('.show-more-btn');
-            const icon = button.querySelector('i');
-            
-            if (moreOrganizations.classList.contains('show')) {
-                moreOrganizations.classList.remove('show');
-                button.innerHTML = '<i class="fas fa-chevron-down"></i>显示更多组织';
-                button.classList.remove('expanded');
-            } else {
-                moreOrganizations.classList.add('show');
-                button.innerHTML = '<i class="fas fa-chevron-up"></i>收起组织';
-                button.classList.add('expanded');
-            }
-        }
-
-        // 页面加载完成后的初始化
-        document.addEventListener('DOMContentLoaded', function() {
-            // 为统计卡片添加加载动画
-            const statCards = document.querySelectorAll('.stat-card');
-            statCards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 100);
-            });
-
-            // 为重点服务卡片添加加载动画
-            const highlightCards = document.querySelectorAll('.highlight-card');
-            highlightCards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 500 + index * 100);
-            });
-
-            // 为服务项目添加悬停效果
-            const serviceItems = document.querySelectorAll('.service-item, .journal-item');
-            serviceItems.forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-2px)';
-                });
-                
-                item.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
-        });
-    </script>
+    
     <!-- busuanzi 访问统计，建议放在所有 js 代码后 -->
     <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </body>
